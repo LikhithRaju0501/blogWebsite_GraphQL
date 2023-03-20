@@ -51,7 +51,6 @@ const Blog = () => {
   };
 
   const formSubmit = (data) => {
-    console.log({ ...data, image });
     createBlog({
       variables: {
         input: { ...data, image },

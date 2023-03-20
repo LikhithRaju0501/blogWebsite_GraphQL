@@ -55,7 +55,6 @@ const EditBlog = ({ data, hideModal }) => {
     const input = base64image
       ? { ...data, id, image: base64image }
       : { ...data, id };
-    console.log(input);
 
     updateBlog({
       variables: {

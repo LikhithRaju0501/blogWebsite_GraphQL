@@ -17,7 +17,6 @@ const BlogContent = () => {
   const { id } = useParams();
   let navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
-  console.log(id);
 
   const { data, loading } = useQuery(GET_BLOGS_BY_ID, {
     variables: { blogId: id },
@@ -35,7 +34,6 @@ const BlogContent = () => {
     }
   );
 
-  console.log(isEditAccess, isEditLoader);
 
   const [deleteBlog] = useMutation(DELETE_BLOG, {
     onCompleted: () => {

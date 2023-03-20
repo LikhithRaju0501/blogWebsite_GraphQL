@@ -13,7 +13,6 @@ export const resolvers = {
     blogs: () => Blog.findAll(),
     blog: (_, { id }) => Blog.findById(id),
     isUsersBlog: async (_, blog, { user }) => {
-      console.log(blog);
       const { userId } = await Blog.findById(blog.id);
       return userId === user.id;
     },

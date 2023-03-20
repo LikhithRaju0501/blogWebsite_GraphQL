@@ -19,7 +19,6 @@ export async function login(email, password) {
   });
   if (response.ok) {
     const { token } = await response.json();
-    console.log(token);
     localStorage.setItem(ACCESS_TOKEN_KEY, token);
   }
   return response.ok;
