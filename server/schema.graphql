@@ -1,0 +1,60 @@
+type Query {
+  blogs: [Blog]
+  blog(id: ID!): Blog
+  isUsersBlog(id: ID!): Boolean
+  greeting(id: ID!): String
+}
+
+type Mutation {
+  createBlog(input: createBlogInput!): Blog!
+  updateBlog(input: updateBlogInput!): Blog!
+  deleteBlog(id: ID!): Blog!
+  signUpUser(input: signUpUserInput!): User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+}
+
+input signUpUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input createBlogInput {
+  title: String!
+  author: String!
+  content: String!
+  category: String
+  image: String
+}
+
+input updateBlogInput {
+  id: ID!
+  title: String!
+  author: String!
+  content: String!
+  category: String!
+  image: String
+}
+
+type Blog {
+  id: ID!
+  title: String!
+  author: String!
+  content: String!
+  date: String!
+  category: String
+  image: String
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+}
