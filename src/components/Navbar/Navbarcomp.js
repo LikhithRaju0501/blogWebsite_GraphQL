@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
+
+import { Link } from "react-router-dom";
+
 import { isLoggedIn, logout } from "../Authentication/auth";
 
 const LinkWrapper = styled(Link)`

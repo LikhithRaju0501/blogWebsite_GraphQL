@@ -1,7 +1,10 @@
 import React from "react";
+
 import { Table } from "react-bootstrap";
-import "./Forumcomp.css";
+
 import { useSelector } from "react-redux";
+
+import "./Forumcomp.css";
 
 const Forumcomp = () => {
   const blogs = useSelector((state) => state.blogReducer);

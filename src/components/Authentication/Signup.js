@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Alert, Button, Card, Form } from "react-bootstrap";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { SIGNUP_USER } from "../GraphQL/mutations";
 
-import { Alert, Button, Card, Form } from "react-bootstrap";
+import { SIGNUP_USER } from "../GraphQL/mutations";
 
 const Signup = () => {
   const [apiError, setApiError] = useState(false);

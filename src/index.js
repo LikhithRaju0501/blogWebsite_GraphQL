@@ -1,21 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import "./index.css";
-import App from "./App";
-import Blog from "./components/Blog/Blog";
 import { rootReducer } from "./redux/reducer";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+import App from "./App";
+import Blog from "./components/Blog/Blog";
+import { isLoggedIn } from "./components/Authentication/auth";
 import Forumcomp from "./components/Forums/Forumcomp";
 import Contactcomp from "./components/Contact/Contactcomp";
 import BlogContent from "./components/BlogContent/BlogContent";
 import Navbarcomp from "./components/Navbar/Navbarcomp";
-
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Login from "./components/Authentication/Login";
 import Signup from "./components/Authentication/Signup";
-import { isLoggedIn } from "./components/Authentication/auth";
+import "./index.css";
 
 const client = new ApolloClient({
   uri: "http://localhost:9000/",

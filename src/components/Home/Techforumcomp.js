@@ -1,8 +1,11 @@
 import React from "react";
+
 import { Alert } from "react-bootstrap";
-import "./Techforumcomp.css";
+
 import { useSelector, useDispatch } from "react-redux";
 import { resetshowCard } from "../../redux/action";
+
+import "./Techforumcomp.css";
 
 const Techforumcomp = () => {
   const showCard = useSelector((state) => state.showCard);

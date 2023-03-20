@@ -1,9 +1,11 @@
 import React from "react";
+
+import { useQuery } from "@apollo/client";
+import { GET_ALL_BLOGS } from "../GraphQL/queries";
+
 import Cardcomp from "./Cardcomp";
 import Techforumcomp from "./Techforumcomp";
 import "./Home.css";
-import { useQuery } from "@apollo/client";
-import { GET_ALL_BLOGS } from "../GraphQL/queries";
 
 const Home = () => {
   const { data, loading } = useQuery(GET_ALL_BLOGS);

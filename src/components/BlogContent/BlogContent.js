@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+
 import { useParams } from "react-router-dom";
-import "./BlogContent.css";
 import { useQuery, useMutation } from "@apollo/client";
 import {
   GET_BLOGS_BY_ID,
@@ -9,9 +10,10 @@ import {
 } from "../GraphQL/queries";
 import { DELETE_BLOG } from "../GraphQL/mutations";
 import { getAccessToken } from "../Authentication/auth";
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+
 import EditModal from "./EditModal";
+import "./BlogContent.css";
 
 const BlogContent = () => {
   const { id } = useParams();
@@ -33,7 +35,6 @@ const BlogContent = () => {
       },
     }
   );
-
 
   const [deleteBlog] = useMutation(DELETE_BLOG, {
     onCompleted: () => {

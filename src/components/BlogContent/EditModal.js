@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Modal } from "react-bootstrap";
+
 import EditBlog from "./EditBlog";
 
 const EditModal = ({ hideModal, showModal, data }) => {

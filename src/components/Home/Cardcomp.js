@@ -1,6 +1,8 @@
 import React from "react";
-import "./Cardcomp.css";
+
 import { Link } from "react-router-dom";
+
+import "./Cardcomp.css";
 import bg1 from "../../Assests/cardimg1.webp";
 import bg2 from "../../Assests/cardimg2.webp";
 import bg3 from "../../Assests/cardimg3.webp";
