@@ -27,7 +27,6 @@ input signUpUserInput {
 
 input createBlogInput {
   title: String!
-  author: String!
   content: String!
   category: String
   image: String
@@ -36,7 +35,6 @@ input createBlogInput {
 input updateBlogInput {
   id: ID!
   title: String!
-  author: String!
   content: String!
   category: String!
   image: String

@@ -31,11 +31,13 @@ export const resolvers = {
 
       return Blog.create({
         ...input,
+        author: isUser.name,
         userId: isUser.id,
         date,
       });
     },
     updateBlog: async (_, { input }, { user }) => {
+      rejectIf(!user);
       const blogUser = await Blog.findById(input.id);
       const isUserExist = await User.findById(user.id);
       rejectIf(blogUser.userId !== isUserExist.id);
@@ -48,6 +50,7 @@ export const resolvers = {
       return Blog.update({
         ...input,
         userId: isUserExist.id,
+        author: isUserExist.name,
         date: today,
       });
     },
@@ -64,6 +67,11 @@ export const resolvers = {
       const userDetails = await User.findById(userId);
       if (!userDetails) unauthError();
       return userDetails;
+    },
+    author: async ({ userId }) => {
+      const userDetails = await User.findById(userId);
+      if (!userDetails) unauthError();
+      return userDetails.name;
     },
   },
 };

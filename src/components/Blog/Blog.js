@@ -40,7 +40,6 @@ const Blog = () => {
 
   const validations = {
     title: { required: "Title is required" },
-    author: { required: "Author is required" },
     category: { required: "Category is required" },
     content: {
       required: "Content of your blog is required",
@@ -61,7 +60,6 @@ const Blog = () => {
 
   const formError = (errors) => {
     errors?.title && console.log(errors.title.message);
-    errors?.author && console.log(errors.author.message);
     errors?.category && console.log(errors.category.message);
     errors?.content && console.log(errors.content.message);
   };
@@ -100,16 +98,6 @@ const Blog = () => {
             />
           </InputGroup>
           <div className="errorMessage">{errors?.title?.message}</div>
-          <InputGroup>
-            <InputGroup.Text id="basic-addon1">Author</InputGroup.Text>
-            <FormControl
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              name="author"
-              {...register("author", validations.author)}
-            />
-          </InputGroup>
-          <div className="errorMessage">{errors?.author?.message}</div>
 
           <InputGroup>
             <InputGroup.Text id="basic-addon1">Post Category</InputGroup.Text>

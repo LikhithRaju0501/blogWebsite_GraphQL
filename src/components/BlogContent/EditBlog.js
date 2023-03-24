@@ -9,7 +9,7 @@ import { UPDATE_BLOG } from "../GraphQL/mutations";
 import { getAccessToken } from "../Authentication/auth";
 
 const EditBlog = ({ data, hideModal }) => {
-  const { title, author, category, content, image: base64Img, id } = data?.blog;
+  const { title, category, content, image: base64Img, id } = data?.blog;
 
   const [base64image, setBase64Image] = useState(base64Img);
 
@@ -34,14 +34,12 @@ const EditBlog = ({ data, hideModal }) => {
 
   useEffect(() => {
     setValue("title", title);
-    setValue("author", author);
     setValue("category", category);
     setValue("content", content);
   });
 
   const validations = {
     title: { required: "Title is required" },
-    author: { required: "Author is required" },
     category: { required: "Category is required" },
     content: {
       required: "Content of your blog is required",
@@ -66,7 +64,6 @@ const EditBlog = ({ data, hideModal }) => {
 
   const formError = (errors) => {
     errors?.title && console.log(errors.title.message);
-    errors?.author && console.log(errors.author.message);
     errors?.category && console.log(errors.category.message);
     errors?.content && console.log(errors.content.message);
   };
@@ -108,16 +105,7 @@ const EditBlog = ({ data, hideModal }) => {
             />
           </InputGroup>
           <div className="errorMessage">{errors?.title?.message}</div>
-          <InputGroup>
-            <InputGroup.Text id="basic-addon1">Author</InputGroup.Text>
-            <FormControl
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              name="author"
-              {...register("author", validations.author)}
-            />
-          </InputGroup>
-          <div className="errorMessage">{errors?.author?.message}</div>
+
           <InputGroup>
             <InputGroup.Text id="basic-addon1">Post Category</InputGroup.Text>
             <FormControl
