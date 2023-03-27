@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 import EditModal from "./EditModal";
 import "./BlogContent.css";
+import CommentsComp from "./CommentsComp";
 
 const BlogContent = () => {
   const { id } = useParams();
@@ -102,6 +103,7 @@ const BlogContent = () => {
             )
           )}
           <EditModal hideModal={hideModal} showModal={showModal} data={data} />
+          <CommentsComp comments={data?.blog?.comments} id={id} />
         </div>
       )}
     </div>

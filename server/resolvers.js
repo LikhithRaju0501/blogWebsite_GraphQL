@@ -34,6 +34,7 @@ export const resolvers = {
         author: isUser.name,
         userId: isUser.id,
         date,
+        comments: [],
       });
     },
     updateBlog: async (_, { input }, { user }) => {
@@ -61,6 +62,20 @@ export const resolvers = {
       return Blog.delete(id);
     },
     signUpUser: (_, { input }) => User.create(input),
+    addComment: async (_, { input }, { user }) => {
+      const blogToComment = await Blog.findById(input?.id);
+      const userToComment = await User.findById(user?.id);
+      rejectIf(!userToComment || !blogToComment);
+      if (blogToComment.userId === userToComment.id)
+        throw new Error("You cannot comment on your own post");
+      return Blog.update({
+        ...blogToComment,
+        comments: [
+          ...blogToComment.comments,
+          { id: user.id, message: input.message, author: user.name },
+        ],
+      });
+    },
   },
   Blog: {
     user: async ({ userId }) => {

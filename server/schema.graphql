@@ -10,6 +10,7 @@ type Mutation {
   updateBlog(input: updateBlogInput!): Blog!
   deleteBlog(id: ID!): Blog!
   signUpUser(input: signUpUserInput!): User!
+  addComment(input: commentInput!): Blog
 }
 
 type User {
@@ -40,6 +41,11 @@ input updateBlogInput {
   image: String
 }
 
+input commentInput {
+  id: ID!
+  message: String!
+}
+
 type Blog {
   id: ID!
   title: String!
@@ -49,10 +55,17 @@ type Blog {
   category: String
   image: String
   user: User!
+  comments: [Comment]
 }
 
 type User {
   id: ID!
   email: String!
   password: String!
+}
+
+type Comment {
+  id: ID!
+  author: String!
+  message: String!
 }

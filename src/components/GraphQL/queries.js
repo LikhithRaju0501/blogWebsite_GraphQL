@@ -24,6 +24,10 @@ export const GET_BLOGS_BY_ID = gql`
       date
       content
       image
+      comments {
+        message
+        author
+      }
     }
   }
 `;

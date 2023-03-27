@@ -7,6 +7,7 @@ import bg1 from "../../Assests/cardimg1.webp";
 import bg2 from "../../Assests/cardimg2.webp";
 import bg3 from "../../Assests/cardimg3.webp";
 import bg4 from "../../Assests/cardimg4.webp";
+import { isLoggedIn } from "../Authentication/auth";
 
 const Cardcomp = ({ blog }) => {
   const { id, image, author, category, title, content } = blog;
@@ -20,7 +21,7 @@ const Cardcomp = ({ blog }) => {
     <div className="cardGroup">
       <div className="cardComp">
         <Link
-          to={`/blogContent/${id}`}
+          to={isLoggedIn() && `/blogContent/${id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           {image ? (

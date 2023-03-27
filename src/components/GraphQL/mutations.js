@@ -38,3 +38,17 @@ export const SIGNUP_USER = gql`
     }
   }
 `;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($input: commentInput!) {
+    addComment(input: $input) {
+      id
+      title
+      comments {
+        id
+        author
+        message
+      }
+    }
+  }
+`;
